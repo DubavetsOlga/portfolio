@@ -38,13 +38,17 @@ export const Header: React.FC = () => {
                         width < breakpoint
                         ? <>
                                 <Socials/>
-                                <button onClick={toggleTheme}><Icon width="30" height="30" viewBox="0 0 30 30" iconId="theme"/></button>
+                                <button onClick={toggleTheme}>
+                                    <Icon width="30" height="30" viewBox="0 0 30 30" iconId="theme"/>
+                                </button>
                                 <MobileMenu/>
                             </>
                         : <>
                                 <DesktopMenu/>
                                 <Socials/>
-                                <button onClick={toggleTheme}><Icon width="30" height="30" viewBox="0 0 30 30" iconId="theme"/></button>
+                                <button onClick={toggleTheme}>
+                                    <Icon width="30" height="30" viewBox="0 0 30 30" iconId="theme"/>
+                                </button>
                             </>
                     }
                     

@@ -41,7 +41,6 @@ const Name = styled.span`
 const Photo = styled.img`
     max-width: calc(100vw - 30px);
     width: 349px;
-    //height: 349px;
     height: auto;
     aspect-ratio: 1 / 1;
     object-fit: cover;
@@ -51,19 +50,9 @@ const Photo = styled.img`
     border-radius: 230px;
     background: linear-gradient(${theme.colors.gradient}) border-box;
     background-clip: border-area;
-
-    @media ${theme.media.tablet} {
-       /* width: 300px;
-        height: 300px;*/
-    }
-
-    @media ${theme.media.mobile} {
-        //display: none;
-    }
 `;
 
 const ImgContainer = styled.div`
-    //margin: 30px auto 0;
     position: relative;
     z-index: 1;
 

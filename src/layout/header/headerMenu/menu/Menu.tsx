@@ -5,26 +5,11 @@ import { S } from "./../HeaderMenu_Styles"
 export const Menu: React.FC = () => {
 
     const items = [
-        {
-            title: "Home",
-            href: "home"
-        },
-        {
-            title: "About",
-            href: "about",
-        },
-        {
-            title: "Skills",
-            href: "skills"
-        },
-        {
-            title: "Projects",
-            href: "projects"
-        },
-        {
-            title: "Contact",
-            href: "contact"
-        }
+        { title: "Home", href: "home" },
+        { title: "About", href: "about", },
+        { title: "Skills", href: "skills" },
+        { title: "Projects", href: "projects" },
+        { title: "Contact", href: "contact" }
     ];
 
     return (

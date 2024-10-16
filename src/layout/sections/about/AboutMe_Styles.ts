@@ -27,7 +27,6 @@ const About = styled.section`
     }
 
     ${FlexWrapper} {
-        /*width: 70%;*/
         margin-left: 30%;
 
         @media ${theme.media.tablet} {
@@ -58,21 +57,6 @@ const Description = styled.p`
     color: ${(props) => props.theme.colors.secondFont};
     text-align: justify;
 `;
-/*
-const Temp = styled.div`
-    position: relative;
-    z-index: 1;
-
-    &::before {
-        content: url(${photo});
-            position: absolute;
-            z-index: 0;
-            top: -40%;
-            left: -40%;
-            z-index: 0;
-    }
-`;
-*/
 
 export const S = {
     About,

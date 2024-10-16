@@ -33,7 +33,6 @@ const StyledTabMenu = styled.nav`
     ul {
         display: flex;
         justify-content: center;
-        /* max-width: 352px;*/
         width: 100%;
         margin: 0 auto 30px;
         gap: 20px;

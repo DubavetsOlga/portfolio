@@ -5,7 +5,6 @@ import { S } from "./AboutMe_Styles";
 import { SectionTitle } from "../../../components/SectionTitle";
 import { TabMenu, TabsStatusType } from "./tabMenu/TabMenu";
 import { TabPanel } from "./tabPanel/TabPanel";
-import photo from "../../../assets/images/myphoto.png";
 
 
 const tabItems: Array<{status: TabsStatusType, title: string}> = [
@@ -54,21 +53,3 @@ export const AboutMe: React.FC = () => {
         </S.About>
     );
 };
-
-/*
-                <FlexWrapper justify={"space-between"}>
-                    <img src={photo} alt=""/>
-                    <FlexWrapper direction="column">
-                        <SectionTitle>About Me</SectionTitle>
-                        <S.Description>
-                            I’d describe myself as a goal-oriented and hardworking person with experience in creating SPA, usingReact(JS/TS), Redux, HTML & CSS. Now I am improving my skills in this direction and expanding them with new technologies.
-                        </S.Description>
-                        <TabMenu
-                            tabItems={tabItems}
-                            changeFilterStatus={changeFilterStatus}
-                            currentFilterStatus={currentFilterStatus}
-                        />
-                        <TabPanel panel={currentFilterStatus}/>
-                    </FlexWrapper>
-                </FlexWrapper>
-                */

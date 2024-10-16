@@ -2,6 +2,40 @@ import React from "react";
 import { TabsStatusType } from "./../tabMenu/TabMenu";
 import styled from "styled-components";
 
+const skills = [
+    "Creation Web apps using ReactJs with TypeScript and various libraries.",
+    "Using Redux and Redux-toolkit to manage application state.",
+    "Cross-browser, adaptive, responsive development with CSS-preprocessors, Material UI and And Design libraries.",
+    "Implementation of multilingual application using localization management platform.",
+    "Сheck the correctness of the code with Unit Tests and take Storybook for demonstration of individual modules of the application.",
+    "Creation of applications with login and registration forms, as well as functionality with the ability to add, delete, change and filter data."
+];
+
+const experience = [
+    {
+        who: "Salesforce Developer",
+        where: "VPR Consulting",
+        when: "08/2021 - 11/2023"
+    },
+    {
+        who: "Full-stack developer",
+        where: "Vitebsk State University",
+        when: "06/2015 - 07/2021"
+    },
+];
+
+const education = [
+    {
+        who: "Front-end developer",
+        where: "IT-Incubator",
+        when: "2024 - 2025"
+    },
+    {
+        who: "Mathematician-programmer",
+        where: "Vitebsk State University",
+        when: "2010 - 2015"
+    },
+];
 
 export const TabPanel: React.FC<{panel: TabsStatusType}> = (props: {panel: TabsStatusType}) => {
     const tabs: Record<TabsStatusType, React.ReactElement> = {
@@ -14,37 +48,26 @@ export const TabPanel: React.FC<{panel: TabsStatusType}> = (props: {panel: TabsS
             </ul>
         ),
         skills: (
-            <ul>
-                <li>Creation Web apps using ReactJs with TypeScript and various libraries.</li>
-                <li>Using Redux and Redux-toolkit to manage application state.</li>
-                <li>Cross-browser, adaptive, responsive development with CSS-preprocessors, Material UI and And Design libraries.</li>
-                <li>Implementation of multilingual application using localization management platform.</li>
-                <li>Сheck the correctness of the code with Unit Tests and take Storybook for demonstration of individual modules of the application.</li>
-                <li>Creation of applications with login and registration forms, as well as functionality with the ability to add, delete, change and filter data.</li>
-            </ul>
+            <ul>{skills.map(el => <li>{el}</li>)}</ul>
         ),
         experience: (
             <ul>
-                <li>
-                    <p><span>Salesforce Developer</span> - VPR Consulting</p>
-                    <p>08/2021 - 11/2023</p>
-                </li>
-                <li>
-                    <p><span>Full-stack developer</span> - Vitebsk State University</p>
-                    <p>06/2015 - 07/2021</p>
-                </li>
+                {experience.map(el => 
+                    <li>
+                        <p><span>{el.who}</span> - {el.where}</p>
+                        <p>{el.when}</p>
+                    </li>
+                )}
             </ul>
         ),
         education: (
             <ul>
-                <li>
-                    <p><span>Front-end developer</span> - IT-Incubator</p>
-                    <p>2024 - 2025</p>
-                </li>
-                <li>
-                    <p><span>Mathematician-programmer</span> - Vitebsk State University</p>
-                    <p>2010 - 2015</p>
-                </li>
+                {education.map(el => 
+                    <li>
+                        <p><span>{el.who}</span> - {el.where}</p>
+                        <p>{el.when}</p>
+                    </li>
+                )}
             </ul>
         ),
     };
