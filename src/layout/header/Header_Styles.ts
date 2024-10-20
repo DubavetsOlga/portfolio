@@ -17,8 +17,10 @@ const Header = styled.header<{ $showShadow?: boolean }>`
         color: ${(props) => props.theme.colors.secondFont};
         transition: ${theme.animations.transition};
 
-        &:hover {
-            transform: rotate(45deg);
+        @media ${theme.media.desktop} {
+            &:hover {
+                transform: rotate(45deg);
+            }
         }
     }
 

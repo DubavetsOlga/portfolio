@@ -1,6 +1,7 @@
 import React from "react";
 import { TabsStatusType } from "./../tabMenu/TabMenu";
 import styled from "styled-components";
+import { v1 } from "uuid";
 
 const skills = [
     "Creation Web apps using ReactJs with TypeScript and various libraries.",
@@ -48,12 +49,12 @@ export const TabPanel: React.FC<{panel: TabsStatusType}> = (props: {panel: TabsS
             </ul>
         ),
         skills: (
-            <ul>{skills.map(el => <li>{el}</li>)}</ul>
+            <ul>{skills.map(el => <li key={v1()}>{el}</li>)}</ul>
         ),
         experience: (
             <ul>
                 {experience.map(el => 
-                    <li>
+                    <li key={v1()}>
                         <p><span>{el.who}</span> - {el.where}</p>
                         <p>{el.when}</p>
                     </li>
@@ -63,7 +64,7 @@ export const TabPanel: React.FC<{panel: TabsStatusType}> = (props: {panel: TabsS
         education: (
             <ul>
                 {education.map(el => 
-                    <li>
+                    <li key={v1()}>
                         <p><span>{el.who}</span> - {el.where}</p>
                         <p>{el.when}</p>
                     </li>

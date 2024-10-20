@@ -15,7 +15,7 @@ const Main = styled.section`
     }
 `;
 
-const Text = styled.p`
+const Text = styled.div`
     font-size: 58px;
     font-weight: 700;
     letter-spacing: -1px;

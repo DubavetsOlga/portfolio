@@ -27,7 +27,7 @@ export const Socials: React.FC = () => {
             {socialItems.map((s, index) => {
                 return (
                     <S.ListItem key={index}>
-                        <S.Link href={s.link}>
+                        <S.Link href={s.link} target="_blank">
                             <Icon width="30" height="30" viewBox={s.viewBox} iconId={s.icon}/>
                         </S.Link>
                     </S.ListItem>

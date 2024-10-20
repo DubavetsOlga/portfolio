@@ -40,11 +40,13 @@ function App() {
 }
 
 const StyledApp = styled.div`
-    position: relative;
     color: ${(props) => props.theme.colors.font};
     background-color: ${(props) => props.theme.colors.primaryBg};
-
     transition: .8s ease;
+
+    section {
+        background-color: ${(props) => props.theme.colors.primaryBg};
+    }
 
     h3 {
         color: ${(props) => props.theme.colors.secondFont};
