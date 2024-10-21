@@ -8,22 +8,65 @@ const Works = styled.section`
     ${FlexWrapper} > ${FlexWrapper} {
         gap: 46px;
     }
+
+    .alice-carousel__prev-btn,
+    .alice-carousel__next-btn {
+        position: absolute;
+        border-radius: 100%;
+        width: 40px;
+        height: 40px;
+        background-color: ${(props) => props.theme.colors.secondFont};
+        opacity: 0.5;
+    }
+
+    .alice-carousel__prev-btn {
+        left: -2%;
+        top: 40%;
+    }
+
+    .alice-carousel__next-btn {
+        right: -2%;
+        top: 40%;
+    }
+
+    .alice-carousel__prev-btn-wrapper,
+    .alice-carousel__next-btn-wrapper {
+        margin-top: -10px;
+    }
+
+    .alice-carousel__prev-btn-wrapper {
+        margin-right: 6px;
+    }
+
+    .alice-carousel__next-btn-wrapper {
+        margin-left: 6px;
+    }
+
+    .alice-carousel__prev-btn-item,
+    .alice-carousel__next-btn-item {
+        color: ${(props) => props.theme.colors.primaryBg};
+        padding: 0;
+        font-size: 40px;
+    }
 `;
 
 //Work
 
 const Work = styled.div`
-    width: 30%;
-    flex-grow: 1;
-    min-width: min(360px, calc(100vw - 30px));
-    text-align: justify;
-
     border-radius: 20px;
-    box-shadow: 2px 2px 100px 0px ${(props) => props.theme.colors.boxShadow};
     background: ${(props) => props.theme.colors.boxColor};
 
     @media ${theme.media.desktop} {
         max-width: 375px;
+    }
+
+    @media not ${theme.media.mobile} {
+        width: 30%;
+        flex-grow: 1;
+        min-width: min(360px, calc(100vw - 30px));
+        text-align: justify;
+
+        box-shadow: 2px 2px 100px 0px ${(props) => props.theme.colors.boxShadow};
     }
 `;
 
@@ -119,6 +162,16 @@ const Links = styled.div`
     }
 `;
 
+// Slider
+
+const Slider = styled.div`
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
+
 export const S = {
     Works,
     Work,
@@ -129,4 +182,5 @@ export const S = {
     Stack,
     Stacks,
     Links,
+    Slider,
 }

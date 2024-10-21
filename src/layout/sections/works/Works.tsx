@@ -1,4 +1,4 @@
-import React  from "react";
+import React, { useEffect, useState } from "react";
 import { SectionTitle } from "../../../components/SectionTitle";
 import { Container } from "../../../components/Container";
 import { S } from "./Works_Styles"
@@ -11,6 +11,9 @@ import workImg3 from "./../../../assets/images/works/work3.png";
 import workImg4 from "./../../../assets/images/works/work4.png";
 import workImg5 from "./../../../assets/images/works/work5.png";
 import workImg6 from "./../../../assets/images/works/work6.png";
+import { v1 } from "uuid";
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
 
 
 const workData = [
@@ -52,25 +55,43 @@ const workData = [
     },
 ];
 
+const items = workData.map(w => 
+    <Work key={v1()}
+        title={w.title}
+        text={w.text}
+        techStack={w.techStack}
+        src={w.scr}
+    />
+)
+
 export const Works: React.FC = () => {
+    const [width, setWidth] = useState(window.innerWidth);
+    const breakpoint = 576;
+    
+    useEffect(() => {
+        const handleWindowResize = () => setWidth(window.innerWidth)
+        window.addEventListener("resize", handleWindowResize);
+        return () => window.removeEventListener("resize", handleWindowResize);
+    }, []);
+
     return (
         <S.Works id="projects">
             <Container>
-                <FlexWrapper align={"center"} direction="column">
+                <FlexWrapper align="center" direction="column">
                     <SectionTitle>Projects</SectionTitle>
                     <SectionInfo>Things I’ve built so far</SectionInfo>
-                    <FlexWrapper justify="space-between" align="flex-start" wrap="wrap">
-
-                        {workData.map((w, index) => {
-                            return <Work key={index}
-                                title={w.title}
-                                text={w.text}
-                                techStack={w.techStack}
-                                src={w.scr}
+                    {width > breakpoint 
+                    ?
+                        <FlexWrapper justify="space-between" align="flex-start" wrap="wrap">
+                            {items}
+                        </FlexWrapper>
+                    :     
+                        <S.Slider>
+                            <AliceCarousel mouseTracking items={items}
                             />
-                        })}
+                        </S.Slider>
+                    }
 
-                    </FlexWrapper>
                 </FlexWrapper>
             </Container>
         </S.Works>

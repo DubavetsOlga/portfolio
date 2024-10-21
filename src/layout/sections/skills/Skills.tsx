@@ -1,4 +1,4 @@
-import React, { useState, useEffect }  from "react";
+import React, { useState, useEffect } from "react";
 import { Container } from "../../../components/Container";
 import { S } from "./Skills_Styles"
 import { SectionTitle } from "../../../components/SectionTitle";
@@ -22,10 +22,10 @@ const skillData = [
 ];
 
 export const Skills: React.FC = () => {
-    const [width, setWidth] = React.useState(window.innerWidth);
+    const [width, setWidth] = useState(window.innerWidth);
     const breakpoint = 500;
 
-    React.useEffect(() => {
+    useEffect(() => {
         const handleWindowResize = () => setWidth(window.innerWidth)
         window.addEventListener("resize", handleWindowResize);
         return () => window.removeEventListener("resize", handleWindowResize);
@@ -37,27 +37,27 @@ export const Skills: React.FC = () => {
                 <FlexWrapper align="center" direction="column">
                     <SectionTitle>My Tech Stack</SectionTitle>
                     <SectionInfo>Technologies I’ve been working with recently</SectionInfo>
-                    {
-                    width > breakpoint
-                    ?
-                        <FlexWrapper align="center" wrap="wrap" justify="space-around" style={{gap:"60px"}}>
-                            <Fade cascade damping={0.2}>
+                    {width > breakpoint
+                        ?
+                            <FlexWrapper align="center" wrap="wrap" justify="space-around" style={{gap:"60px"}}>
+                                <Fade cascade damping={0.2}>
+                                    {skillData.map((s, index) => (
+                                        <S.Skill key={index}>
+                                            <Icon iconId={s.iconId} width="120" height="120" viewBox="0 0 48 48"/>
+                                            <S.Title>{s.title}</S.Title>
+                                        </S.Skill>
+                                    ))}
+                                </Fade>
+                            </FlexWrapper>
+                        : 
+                            <FlexWrapper justify="space-between" style={{gap:"30px", overflowX: "scroll", overflowY: "hidden", maxWidth: "calc(100vw - 20px)"}}>
                                 {skillData.map((s, index) => (
                                     <S.Skill key={index}>
-                                        <Icon iconId={s.iconId} width="120" height="120" viewBox="0 0 48 48"/>
+                                        <Icon iconId={s.iconId} width="60" height="60" viewBox="0 0 48 48"/>
                                         <S.Title>{s.title}</S.Title>
                                     </S.Skill>
                                 ))}
-                            </Fade>
-                        </FlexWrapper>
-                    : <FlexWrapper justify="space-between" style={{gap:"30px", overflowX: "scroll", overflowY: "hidden", maxWidth: "calc(100vw - 20px)"}}>
-                        {skillData.map((s, index) => (
-                            <S.Skill key={index}>
-                                <Icon iconId={s.iconId} width="60" height="60" viewBox="0 0 48 48"/>
-                                <S.Title>{s.title}</S.Title>
-                            </S.Skill>
-                        ))}
-                    </FlexWrapper>
+                            </FlexWrapper>
                     }
                 </FlexWrapper>
             </Container>
