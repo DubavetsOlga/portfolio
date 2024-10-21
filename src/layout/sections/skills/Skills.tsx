@@ -37,26 +37,28 @@ export const Skills: React.FC = () => {
                 <FlexWrapper align="center" direction="column">
                     <SectionTitle>My Tech Stack</SectionTitle>
                     <SectionInfo>Technologies I’ve been working with recently</SectionInfo>
-                    <FlexWrapper align="center" wrap="wrap" justify="space-around" style={{gap:"60px"}}>
-                        <Fade cascade damping={0.2}>
-                            {skillData.map((s, index) => {
-                                return <S.Skill key={index}>
-
-                                    {
-                                        width > breakpoint
-                                        ? <>
-                                                <Icon iconId={s.iconId} width="120" height="120" viewBox="0 0 48 48"/>
-                                            </>
-                                        : <>
-                                                <Icon iconId={s.iconId} width="60" height="60" viewBox="0 0 48 48"/>
-                                            </>
-                                    }
-
-                                    <S.Title>{s.title}</S.Title>
-                                </S.Skill>
-                            })}
-                        </Fade>
+                    {
+                    width > breakpoint
+                    ?
+                        <FlexWrapper align="center" wrap="wrap" justify="space-around" style={{gap:"60px"}}>
+                            <Fade cascade damping={0.2}>
+                                {skillData.map((s, index) => (
+                                    <S.Skill key={index}>
+                                        <Icon iconId={s.iconId} width="120" height="120" viewBox="0 0 48 48"/>
+                                        <S.Title>{s.title}</S.Title>
+                                    </S.Skill>
+                                ))}
+                            </Fade>
+                        </FlexWrapper>
+                    : <FlexWrapper justify="space-between" style={{gap:"30px", overflowX: "scroll", overflowY: "hidden", maxWidth: "calc(100vw - 20px)"}}>
+                        {skillData.map((s, index) => (
+                            <S.Skill key={index}>
+                                <Icon iconId={s.iconId} width="60" height="60" viewBox="0 0 48 48"/>
+                                <S.Title>{s.title}</S.Title>
+                            </S.Skill>
+                        ))}
                     </FlexWrapper>
+                    }
                 </FlexWrapper>
             </Container>
         </S.Skills>
