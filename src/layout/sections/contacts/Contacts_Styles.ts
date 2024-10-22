@@ -46,8 +46,22 @@ const Field = styled.input`
     }
 `;
 
+const Dialog = styled.dialog`
+    text-align: center;
+    height: 50px;
+    width: 230px;
+    align-content: center;
+    position: fixed;
+    top: calc(50vh - 25px);
+    left: calc(50vw - 115px);
+    background: grey;
+    border: ${(props) => props.theme.colors.boxColor};
+    border-radius: 10px;
+`
+
 export const S = {
     Contact,
     Form,
     Field,
+    Dialog,
 }
