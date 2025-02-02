@@ -3,7 +3,8 @@ import React, { createContext, useEffect, useState } from 'react';
 const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
-    const [theme, setTheme] = useState(JSON.parse(localStorage.getItem('theme')));
+    //const [theme, setTheme] = useState(JSON.parse(localStorage.getItem('theme')));
+    const [theme, setTheme] = useState('dark');
 
     const toggleTheme = () => {
       setTheme(theme === 'light' ? 'dark' : 'light');
